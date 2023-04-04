@@ -1,8 +1,9 @@
 package test.scene.one;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import test.pageObjects.ConfigArrow;
@@ -13,11 +14,12 @@ public class TestArrow {
     private WebDriver driver;
     private ConfigArrow configArrow;
 
-    @BeforeEach
+    @Before
     public void  setUp()
     {
         driver = new ChromeDriver();
         configArrow = new ConfigArrow(driver);
+
     }
 
     @Test
@@ -31,7 +33,7 @@ public class TestArrow {
         }
     }
 
-    @AfterEach
+    @After
     public void tearDown() {
         driver.quit();
     }

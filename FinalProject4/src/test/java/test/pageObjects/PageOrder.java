@@ -28,14 +28,21 @@ public class PageOrder {
     public static By buttonNext = By.xpath("/html/body/div/div/div[2]/div[3]/button");
     //text field "Arrival Date"
     public static By inputArrival = By.xpath("/html/body/div/div/div[2]/div[2]/div[1]/div/div/input");
+    //checking for getting the correct arrival date
+    public static By errorArrival = By.xpath("//div[text()='Введите корректную дату']");
     //select "Rental period"
     public static By inputFieldPeriod = By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/div[1]/div[1]");
     //choose "Rental period"
     public static By inputChoosePeriod = By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/div[2]/div[1]");
+    //checking for getting the correct period
+    public static By errorPeriod = By.xpath("//div[text()='Введите корректный срок']");
     //label color scooter "black pearl"
     public static By inputColor = By.xpath("/html/body/div/div/div[2]/div[2]/div[3]/label[1]/input");
+    //message about choose color
+    public static By errorColor = By.xpath("//div[text()='Выберите цвет']");
     //text field "comment courier"
     public static By inputComment = By.xpath("/html/body/div/div/div[2]/div[2]/div[4]/input");
+
     //button for the final order: "Order"
     public static By buttonFinalOrder = By.xpath("/html/body/div/div/div[2]/div[3]/button[2]");
     //button "Yes"
