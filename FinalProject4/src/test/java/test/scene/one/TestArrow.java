@@ -6,30 +6,29 @@ import org.junit.Test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import test.pageObjects.ConfigArrow;
+import test.pages.MainPageScooter;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestArrow {
     private WebDriver driver;
-    private ConfigArrow configArrow;
+    private MainPageScooter mainPageScooter;
 
     @Before
     public void  setUp()
     {
         driver = new ChromeDriver();
-        configArrow = new ConfigArrow(driver);
-
+        mainPageScooter = new MainPageScooter(driver);
     }
 
     @Test
     public void testClickArrowGetText() {
-        configArrow.acceptCookies();
+        mainPageScooter.acceptCookies();
         for (int i =0; i<8;i++)
         {
-            configArrow.getArrow(i);
-            configArrow.getTextElement(i);
-            assertTrue(configArrow.getTextElement(i).isEnabled());
+            mainPageScooter.getArrow(i);
+            mainPageScooter.getTextElement(i);
+            assertTrue(mainPageScooter.getTextElement(i).isEnabled());
         }
     }
 

@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import test.pageObjects.ConfigOrder;
+import test.pages.PageOrder;
 
 
 import java.util.Arrays;
@@ -22,8 +22,7 @@ public class TestOrder {
     public final String arrival;
     public final String comment;
     private WebDriver driver;
-    private ConfigOrder configOrder;
-
+    private PageOrder pageOrder;
 
     public TestOrder(String name, String surname, String address, String numberPhone, String arrival, String comment) {
         this.name = name;
@@ -47,26 +46,26 @@ public class TestOrder {
     public void getDriver()
     {
         driver = new ChromeDriver();
-        configOrder = new ConfigOrder(driver);
+        pageOrder = new PageOrder(driver);
     }
     @Test
     public void createOrderShoError() {
 
-        configOrder.acceptCookies();
-        configOrder.getOrder();
-        configOrder.setName(name);
-        configOrder.setSurname(surname);
-        configOrder.setAddress(address);
-        configOrder.setMetro();
-        configOrder.setPhoneNumber(numberPhone);
-        configOrder.setNextButton();
-        configOrder.setArrivalDate(arrival);
-        configOrder.setRentalPeriod();
-        configOrder.setScooterColor();
-        configOrder.setCommentCourier(comment);
-        configOrder.setFinalOrder();
-        configOrder.clickYesButton();
-        configOrder.orderVerification();
+        pageOrder.acceptCookies();
+        pageOrder.getOrder();
+        pageOrder.setName(name);
+        pageOrder.setSurname(surname);
+        pageOrder.setAddress(address);
+        pageOrder.setMetro();
+        pageOrder.setPhoneNumber(numberPhone);
+        pageOrder.setNextButton();
+        pageOrder.setArrivalDate(arrival);
+        pageOrder.setRentalPeriod();
+        pageOrder.setScooterColor();
+        pageOrder.setCommentCourier(comment);
+        pageOrder.setFinalOrder();
+        pageOrder.clickYesButton();
+        pageOrder.orderVerification();
     }
 
     @After

@@ -5,62 +5,68 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import test.pageObjects.ConfigLogoErrorNoOrder;
-import test.pageObjects.ConfigOrder;
+
+import test.pages.MainPageScooter;
+import test.pages.PageOrder;
+import test.pages.PageTrack;
 
 
-public class TestLogoErrorNoOrder {
+public class TestLogoErrorNoOrder  {
     private WebDriver driver;
-    private ConfigLogoErrorNoOrder configLogoErrorNoOrder;
-    private ConfigOrder configOrder;
+    private PageOrder pageOrder;
+    private MainPageScooter mainPageScooter;
+    private PageTrack pageTrack;
+    final String urlScooter = "https://qa-scooter.praktikum-services.ru/";
+    final String urlYandex = "https://dzen.ru/?yredirect=true";
 
     @Before
     public void Driver()
     {
         driver = new ChromeDriver();
-        configLogoErrorNoOrder = new ConfigLogoErrorNoOrder(driver);
-        configOrder = new ConfigOrder(driver);
+        pageOrder = new PageOrder(driver);
+        mainPageScooter = new MainPageScooter(driver);
+        pageTrack = new PageTrack(driver);
     }
 
     @Test
     public void checkLogoScooterGetMainPage()
     {
-        configLogoErrorNoOrder.getLogoScooter();
-        configLogoErrorNoOrder.getTrueUrl(ConfigLogoErrorNoOrder.urlScooter);
+        mainPageScooter.getLogoScooter();
+        mainPageScooter.getTrueUrl(urlScooter);
     }
 
     @Test
     public void checkLogoYandexGetMainPageYandex()
     {
-        configLogoErrorNoOrder.getLogoYandex();
-        configLogoErrorNoOrder.getTrueUrl(ConfigLogoErrorNoOrder.urlYandex);
+        mainPageScooter.getLogoYandex();
+        mainPageScooter.getTrueUrl(urlYandex);
     }
 
     @Test
-    public void checkFormOneErrorGetMessageError() { configLogoErrorNoOrder.getMessageErrorFormOne();}
+    public void checkFormOneErrorGetMessageError() { pageOrder.getMessageErrorFormOne();}
 
     @Test
     public void checkFormTwoErrorGetMessageError()
     {
-        configOrder.acceptCookies();
-        configOrder.getOrder();
-        configOrder.setName("Виолетта");
-        configOrder.setSurname("Вашина");
-        configOrder.setAddress("Кабяка");
-        configOrder.setMetro();
-        configOrder.setPhoneNumber("+375295873656");
-        configOrder.setNextButton();
-        configLogoErrorNoOrder.getMessageErrorFormTwo();
+        mainPageScooter.acceptCookies();
+        pageOrder.getOrder();
+        pageOrder.setName("Виолетта");
+        pageOrder.setSurname("Вашина");
+        pageOrder.setAddress("Кабяка");
+        pageOrder.setMetro();
+        pageOrder.setPhoneNumber("+375295873656");
+        pageOrder.setNextButton();
+        pageOrder.getMessageErrorFormTwo();
     }
 
     @Test
     public void checkStatusOrderGetNoOrder()
     {
-        configOrder.acceptCookies();
-        configLogoErrorNoOrder.clickOrderStatus();
-        configLogoErrorNoOrder.setNumberOrder();
-        configLogoErrorNoOrder.clickGo();
-        configLogoErrorNoOrder.getNoOrder();
+        mainPageScooter.acceptCookies();
+        mainPageScooter.clickOrderStatus();
+        mainPageScooter.setNumberOrder();
+        mainPageScooter.clickGo();
+        pageTrack.getNoOrder();
     }
 
     @After
